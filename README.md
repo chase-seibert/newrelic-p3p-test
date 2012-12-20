@@ -13,6 +13,13 @@ pip install -r requirements.txt
 ```bash
 sudo sh -c 'echo "127.0.0.1 firstparty.com" >> /etc/hosts'
 sudo sh -c 'echo "127.0.0.1 thirdparty.com" >> /etc/hosts'
+
+10.10.100.104 firstparty.com
+10.10.100.104 localhost.cloudfront.net
+10.10.100.104 localhost.newrelic.com
+10.10.100.104 d1ros97qkrwjf5.cloudfront.net
+10.10.100.104 beacon-4.newrelic.com
+
 ```
 
 # Run the server
