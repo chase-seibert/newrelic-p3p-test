@@ -4,6 +4,5 @@ from mysite import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index),
-    url(r'^js$', views.js),
-    url(r'^ajax$', views.ajax),
+    url(r'^1/2d8ca8bf04$', views.ajax),
 )

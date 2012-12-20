@@ -5,24 +5,14 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse('''
 This page includes the third party javascript
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="http://thirdparty.com:8000/js?nocache=1"></script>
-''')
-
-
-def js(request):
-    return HttpResponse(content_type='application/javascript', content='''
-$(document).ready(function() {
-    document.cookie = 'foo=bar';
-    $.getJSON("http://thirdparty:8000/ajax?callback=?", null, function(data) {
-        document.write('Cookie from server: ' + data.cookie);
-    });
-});
+<script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+<script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";
+document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};
+NREUMQ.push(["nrfj","thirdparty.com:8000","2d8ca8bf04","885531","b1NbN0EFWBcEURFRDlYZfxZdB0INClxKXgBWW14OR0paBQtWDFYGFkBQBkQXDAAEQQ1aDllEXQ==",0,821,new Date().getTime(),"","","","",""]);</script>
 ''')
 
 
 def ajax(request):
-    jsonp = '%(callback)s(%(data)s);' % dict(
-        callback=request.GET.get('callback', ''),
-        data=json.dumps({'cookie': request.COOKIES}))
-    return HttpResponse(content_type='application/json', content=jsonp)
+    print request.COOKIES
+    return HttpResponse('done')
