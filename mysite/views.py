@@ -1,19 +1,17 @@
 from django.shortcuts import render
 
 
-def p3p(response):
-    response["P3P"] = 'CP="We do not have a P3P policy."'
-    return response
-
-
 def index(request):
-    return p3p(render(request, 'index.html'))
+    return render(request, 'index.html')
 
 
 def rum(request):
-    return p3p(render(request, 'rum.js'))
+    return render(request, 'rum.js')
 
 
 def beacon(request):
     print 'COOKIE: %s' % request.COOKIES
-    return p3p(render(request, 'beacon.html'))
+    response = render(request, 'beacon.html')
+    response.set_cookie('JSESSIONID', '9171121a5dc576e2')
+    #response["P3P"] = 'CP="We do not have a P3P policy."'
+    return response
