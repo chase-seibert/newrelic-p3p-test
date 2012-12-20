@@ -1,0 +1,22 @@
+# git ignore file
+
+.*
+.#*
+\#*#
+*.pyc
+*~
+*.swp
+bypass_*
+
+# Do include .gitignore files for subdirectories
+!.gitignore
+
+# for local development
+virtualenv
+*.db
+*.db-journal
+
+# some libs create local egg dirs when pip installed
+lib/structable/Structable.egg-info
+
+ttyrecord
